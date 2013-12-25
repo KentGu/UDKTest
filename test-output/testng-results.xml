@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="15510" started-at="2013-12-25T08:04:28Z" finished-at="2013-12-25T08:04:43Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="15510" started-at="2013-12-25T08:04:28Z" finished-at="2013-12-25T08:04:43Z">
+      <class name="my.selenium.udk.TestAccordion">
+        <test-method status="PASS" signature="beReady()[pri:0, instance:my.selenium.udk.TestAccordion@22e938f3]" name="beReady" is-config="true" duration-ms="10681" started-at="2013-12-25T16:04:28Z" finished-at="2013-12-25T16:04:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beReady -->
+        <test-method status="PASS" signature="ExpColAll()[pri:0, instance:my.selenium.udk.TestAccordion@22e938f3]" name="ExpColAll" duration-ms="3282" started-at="2013-12-25T16:04:39Z" finished-at="2013-12-25T16:04:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExpColAll -->
+        <test-method status="PASS" signature="ExpColSingle()[pri:0, instance:my.selenium.udk.TestAccordion@22e938f3]" name="ExpColSingle" duration-ms="282" started-at="2013-12-25T16:04:42Z" finished-at="2013-12-25T16:04:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExpColSingle -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:my.selenium.udk.TestAccordion@22e938f3]" name="tearDown" is-config="true" duration-ms="1250" started-at="2013-12-25T16:04:42Z" finished-at="2013-12-25T16:04:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- my.selenium.udk.TestAccordion -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
