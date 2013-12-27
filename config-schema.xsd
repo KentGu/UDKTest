@@ -6,72 +6,68 @@
 	Scope:				test point
 	Description:		Identify how to handle with the web element
 -->	
-	<xs:attribute name="actionType" use="required" >
-		<xs:simpleType>
-			<xs:restiction base="xs:string">
-				<xs:enumeration value="click" />
-				<xs:enumeration value="hover" />
-				<xs:enumeration value="input" />
-				<xs:enumeration value="dragdrop" />
-			</xs:restiction>
-		</xs:simpleType>
-	</xs:attribute>
+	<xs:attribute name="actionType" type="actionTypes" />
+	<xs:simpleType name="actionTypes" >
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="click" />
+			<xs:enumeration value="hover" />
+			<xs:enumeration value="input" />
+			<xs:enumeration value="dragdrop" />
+		</xs:restriction>
+	</xs:simpleType>
 
 <!--
 	Attribute Name:		element
 	Scope:				test point/validation point
 	Description:		Identify how to allocate the web element
 -->			
-	<xs:attribute name="element" use="required" >
-		<xs:simpleType>
-			<xs:restiction base="xs:string">
+	<xs:attribute name="element" type="elements"/>
+	<xs:simpleType name="elements">
+		<xs:restriction base="xs:string" >
 				<xs:enumeration value="id" />
 				<xs:enumeration value="name" />
 				<xs:enumeration value="xpath" />
 				<xs:enumeration value="tag" />
 				<xs:enumeration value="css" />
 				<xs:enumeration value="class" />
-			</xs:restiction>
-		</xs:simpleType>
-	</xs:attribute>
+		</xs:restriction>
+	</xs:simpleType>
 
 <!--
 	Attribute Name:		validateType
 	Scope:				validation point
 	Description:		Identify how to allocate the web element
 -->		
-	<xs:attribute name="validateType" use="required" >
-		<xs:simpleType>
-			<xs:resticition base="xs:string" >
-				<xs:enumeration value="css" />
-				<xs:enumeration value="screenshot" />
-				<xs:enumeration value="textValue" />
-			</xs:resticition>
-		</xs:simpleType>
-	</xs:attribute>
+	<xs:attribute name="validateType" type="validaTypes" />
+	<xs:simpleType name="validaTypes">
+		<xs:restriction base="xs:string" >
+			<xs:enumeration value="css" />
+			<xs:enumeration value="screenshot" />
+			<xs:enumeration value="textValue" />
+		</xs:restriction>
+	</xs:simpleType>
 	
 <!--
 	Attribute Name:		value
 	Scope:				All
 	Description:		Contains all attribute value
 -->			
-	<xs:attribute name="value" type="xs:string" use="required" />
+	<xs:attribute name="value" type="xs:string" />
 	
 <!--
 	Attribute Name:		browser
 	Scope:				module
 	Description:		Contains all attribute value
 -->				
-	<xs:attribute name="browser" use="required" >
-		<xs:simpleType>
-			<xs:resticition base="xs:string" >
-				<xs:enumeration value="chrome" />
-				<xs:enumeration value="firefox" />
-				<xs:enumeration value="ie" />
-				<xs:enumeration value="all" />
-			</xs:resticition>
-		</xs:simpleType>
-	</xs:attribute>	
+	<xs:attribute name="browser" type="browsers" />
+	<xs:simpleType name="browsers">
+		<xs:restriction base="xs:string" >
+			<xs:enumeration value="chrome" />
+			<xs:enumeration value="firefox" />
+			<xs:enumeration value="ie" />
+			<xs:enumeration value="all" />
+		</xs:restriction>
+	</xs:simpleType>
 	
 	
 	
@@ -80,7 +76,7 @@
 	Element Name:		validation point
 	Description:		Contains how to validate the test point
 -->		
-	<xs:element name="validationPoint" maxOccurs="unbounded" >
+	<xs:element name="validationPoint">
 		<xs:complexType>
 			<xs:attribute ref="element" ></xs:attribute>
 			<xs:attribute ref="value" />
@@ -91,7 +87,7 @@
 	Element Name:		test point
 	Description:		Contains the test point detail
 -->		
-	<xs:element name="testPoint" maxOccurs="unbounded" >
+	<xs:element name="testPoint">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="validationPoint" />
@@ -106,7 +102,7 @@
 	Element Name:		module
 	Description:		Contains the module detail
 -->	
-	<xs:element name="module" maxOccurs="unbounded" >
+	<xs:element name="module">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="testPoint" />
