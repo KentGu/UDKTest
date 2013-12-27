@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testCases xmlns="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3school.com.cn config-schema.xsd ">
+<testCases xmlns:p="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3school.com.cn config-schema.xsd ">
   <module browser="chrome">
-  	<testPoint>
-  		<validationPoint />
-  	</testPoint>
+    <testPoint actionType="click">
+    	<validationPoint element="id" />
+    </testPoint>
   </module>
 </testCases>

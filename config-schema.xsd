@@ -68,48 +68,9 @@
 			<xs:enumeration value="all" />
 		</xs:restriction>
 	</xs:simpleType>
-	
-	
-	
-<!--               Element List                -->	
-<!--
-	Element Name:		validation point
-	Description:		Contains how to validate the test point
--->		
-	<xs:element name="validationPoint">
-		<xs:complexType>
-			<xs:attribute ref="element" ></xs:attribute>
-			<xs:attribute ref="value" />
-		</xs:complexType>
-	</xs:element>
 
-<!--
-	Element Name:		test point
-	Description:		Contains the test point detail
--->		
-	<xs:element name="testPoint">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="validationPoint" />
-			</xs:sequence>
-			<xs:attribute ref="actionType" />
-			<xs:attribute ref="element" />
-			<xs:attribute ref="value" />
-		</xs:complexType>
-	</xs:element>	
 
-<!--
-	Element Name:		module
-	Description:		Contains the module detail
--->	
-	<xs:element name="module">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="testPoint" />
-			</xs:sequence>
-			<xs:attribute ref="browser" />
-		</xs:complexType>
-	</xs:element>
+
 
 <!--
 	Element Name:		Test Cases
@@ -118,7 +79,40 @@
 	<xs:element name="testCases">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="module" />
+<!--
+	Element Name:		module
+	Description:		Contains the module detail
+-->	
+				<xs:element name="module" maxOccurs="10">
+					<xs:complexType>
+						<xs:sequence>
+							<!--
+								Element Name:		test point
+								Description:		Contains the test point detail
+							-->
+							<xs:element name="testPoint" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<!--
+											Element Name:		validation point
+											Description:		Contains how to validate the test point
+										-->
+										<xs:element name="validationPoint" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:attribute ref="element" />
+												<xs:attribute ref="value" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute ref="actionType" />
+									<xs:attribute ref="element" />
+									<xs:attribute ref="value" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute ref="browser" use="required" />
+					</xs:complexType>
+				</xs:element>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
