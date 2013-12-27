@@ -16,15 +16,24 @@ import org.dom4j.io.SAXReader;
  *
  */
 public class XMLHandler {
-	public static void main (String[] args) throws DocumentException{
-		SAXReader sr = new SAXReader();
-		Document doc = sr.read("config.xml");
-		//List<Node> list = doc.selectNodes("//*");
-		Node node = doc.selectSingleNode("/testCases/module");
-		System.out.println(node.getPath());
-		//System.out.println(list.size());
-		//for (Node element:list){
-	//		System.out.println(element.getPath());
-		//}
+	private String configfile = "config.xml";
+	private SAXReader reader = new SAXReader();
+	private Document doc;
+	
+	public XMLHandler() throws DocumentException{
+			doc = new SAXReader().read(configfile);
+	}
+	
+	public List<Node> getNodes(String xpath) {
+		List<Node> list = doc.selectNodes(xpath);
+		return list;
+	}
+	
+	public Node getNode(String xpath) {
+		return doc.selectSingleNode(xpath);
+	}
+	
+	public String getText(String xpath){
+		return doc.selectSingleNode(xpath).getText();
 	}
 }

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testCases xmlns:p="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3school.com.cn config-schema.xsd ">
-  <module browser="chrome">
-    <testPoint actionType="click">
-    	<validationPoint element="id" />
-    </testPoint>
-  </module>
-</testCases>
+<p:Modules xmlns:p="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3school.com.cn config-schema.xsd ">
+  <p:Module p:moduleName="">
+    <p:TestCase p:browser="all">
+      <p:Step>
+        <p:Action p:actionType="click" p:elementType="xpath">p:Action</p:Action>
+        <p:ExpectedResult p:stepID="0" p:validationType="checkvalue">p:ExpectedResult</p:ExpectedResult>
+      </p:Step>
+    </p:TestCase>
+  </p:Module>
+</p:Modules>

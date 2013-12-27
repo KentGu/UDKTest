@@ -1,13 +1,33 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.w3school.com.cn" xmlns="http://www.w3school.com.cn" elementFormDefault="qualified">
-<!--               Attribute List                -->
-<!--
-	Attribute Name:		actionType
-	Scope:				test point
-	Description:		Identify how to handle with the web element
--->	
+<!-- This document define the required data for any test cases -->
+	<xs:attribute name="moduleName" type="xs:string" />
+	<xs:attribute name="id" type="xs:integer" />
+	<xs:attribute name="stepID" type="xs:integer" />
+	<xs:attribute name="browser" type="browsers" />
+	<xs:attribute name="elementType" type="elementTypes" />
 	<xs:attribute name="actionType" type="actionTypes" />
-	<xs:simpleType name="actionTypes" >
+	<xs:attribute name="validationType" type="validationTypes" />
+	
+	<xs:simpleType name="browsers">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="all" />
+			<xs:enumeration value="ie" />
+			<xs:enumeration value="firefox" />
+			<xs:enumeration value="chrome" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="elementTypes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="xpath" />
+			<xs:enumeration value="id" />
+			<xs:enumeration value="name" />
+			<xs:enumeration value="tag" />
+			<xs:enumeration value="css" />
+			<xs:enumeration value="class" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="actionTypes">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="click" />
 			<xs:enumeration value="hover" />
@@ -15,102 +35,59 @@
 			<xs:enumeration value="dragdrop" />
 		</xs:restriction>
 	</xs:simpleType>
-
-<!--
-	Attribute Name:		element
-	Scope:				test point/validation point
-	Description:		Identify how to allocate the web element
--->			
-	<xs:attribute name="element" type="elements"/>
-	<xs:simpleType name="elements">
-		<xs:restriction base="xs:string" >
-				<xs:enumeration value="id" />
-				<xs:enumeration value="name" />
-				<xs:enumeration value="xpath" />
-				<xs:enumeration value="tag" />
-				<xs:enumeration value="css" />
-				<xs:enumeration value="class" />
-		</xs:restriction>
-	</xs:simpleType>
-
-<!--
-	Attribute Name:		validateType
-	Scope:				validation point
-	Description:		Identify how to allocate the web element
--->		
-	<xs:attribute name="validateType" type="validaTypes" />
-	<xs:simpleType name="validaTypes">
-		<xs:restriction base="xs:string" >
-			<xs:enumeration value="css" />
+	<xs:simpleType name="validationTypes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="checkvalue" />
 			<xs:enumeration value="screenshot" />
-			<xs:enumeration value="textValue" />
-		</xs:restriction>
-	</xs:simpleType>
-	
-<!--
-	Attribute Name:		value
-	Scope:				All
-	Description:		Contains all attribute value
--->			
-	<xs:attribute name="value" type="xs:string" />
-	
-<!--
-	Attribute Name:		browser
-	Scope:				module
-	Description:		Contains all attribute value
--->				
-	<xs:attribute name="browser" type="browsers" />
-	<xs:simpleType name="browsers">
-		<xs:restriction base="xs:string" >
-			<xs:enumeration value="chrome" />
-			<xs:enumeration value="firefox" />
-			<xs:enumeration value="ie" />
-			<xs:enumeration value="all" />
 		</xs:restriction>
 	</xs:simpleType>
 
 
 
 
-<!--
-	Element Name:		Test Cases
-	Description:		Contains all test cases
--->	
-	<xs:element name="testCases">
+
+	
+	<xs:element name="Modules">
 		<xs:complexType>
 			<xs:sequence>
-<!--
-	Element Name:		module
-	Description:		Contains the module detail
--->	
-				<xs:element name="module" maxOccurs="10">
+				<xs:element name="Module" maxOccurs="unbounded" >
 					<xs:complexType>
 						<xs:sequence>
-							<!--
-								Element Name:		test point
-								Description:		Contains the test point detail
-							-->
-							<xs:element name="testPoint" maxOccurs="unbounded">
+							<xs:element name="TestCase" maxOccurs="unbounded" >
 								<xs:complexType>
 									<xs:sequence>
-										<!--
-											Element Name:		validation point
-											Description:		Contains how to validate the test point
-										-->
-										<xs:element name="validationPoint" maxOccurs="unbounded">
+										<xs:element name="Step" maxOccurs="unbounded" >
 											<xs:complexType>
-												<xs:attribute ref="element" />
-												<xs:attribute ref="value" />
+												<xs:sequence>
+													<xs:element name="Action">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute ref="elementType" use="required" />
+																	<xs:attribute ref="actionType" use="required" />
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="ExpectedResult" maxOccurs="unbounded" minOccurs="0" >
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute ref="stepID" use="required" />
+																	<xs:attribute ref="validationType" use="required" />
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
 									</xs:sequence>
-									<xs:attribute ref="actionType" />
-									<xs:attribute ref="element" />
-									<xs:attribute ref="value" />
+									<xs:attribute ref="browser" use="required" />
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
-						<xs:attribute ref="browser" use="required" />
+						<xs:attribute ref="moduleName" use="required" />
 					</xs:complexType>
 				</xs:element>
 			</xs:sequence>
