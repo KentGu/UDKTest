@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
-import org.dom4j.Element;
 import org.dom4j.Node;
 import org.dom4j.io.SAXReader;
 
@@ -17,13 +16,12 @@ import org.dom4j.io.SAXReader;
  */
 public class XMLHandler {
 	private String configfile = "config.xml";
-	private SAXReader reader = new SAXReader();
 	private Document doc;
-	
 	public XMLHandler() throws DocumentException{
 			doc = new SAXReader().read(configfile);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Node> getNodes(String xpath) {
 		List<Node> list = doc.selectNodes(xpath);
 		return list;
