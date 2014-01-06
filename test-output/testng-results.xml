@@ -1,29 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="15510" started-at="2013-12-25T08:04:28Z" finished-at="2013-12-25T08:04:43Z">
+  <suite name="Default suite" duration-ms="26" started-at="2013-12-30T06:18:54Z" finished-at="2013-12-30T06:18:54Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="15510" started-at="2013-12-25T08:04:28Z" finished-at="2013-12-25T08:04:43Z">
-      <class name="my.selenium.udk.TestAccordion">
-        <test-method status="PASS" signature="beReady()[pri:0, instance:my.selenium.udk.TestAccordion@22e938f3]" name="beReady" is-config="true" duration-ms="10681" started-at="2013-12-25T16:04:28Z" finished-at="2013-12-25T16:04:39Z">
+    <test name="Default test" duration-ms="26" started-at="2013-12-30T06:18:54Z" finished-at="2013-12-30T06:18:54Z">
+      <class name="my.test.test.MyTest">
+        <test-method status="PASS" signature="Test()[pri:0, instance:my.test.test.MyTest@588c1ac9]" name="Test" duration-ms="13" started-at="2013-12-30T14:18:54Z" finished-at="2013-12-30T14:18:54Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beReady -->
-        <test-method status="PASS" signature="ExpColAll()[pri:0, instance:my.selenium.udk.TestAccordion@22e938f3]" name="ExpColAll" duration-ms="3282" started-at="2013-12-25T16:04:39Z" finished-at="2013-12-25T16:04:42Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ExpColAll -->
-        <test-method status="PASS" signature="ExpColSingle()[pri:0, instance:my.selenium.udk.TestAccordion@22e938f3]" name="ExpColSingle" duration-ms="282" started-at="2013-12-25T16:04:42Z" finished-at="2013-12-25T16:04:42Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ExpColSingle -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:my.selenium.udk.TestAccordion@22e938f3]" name="tearDown" is-config="true" duration-ms="1250" started-at="2013-12-25T16:04:42Z" finished-at="2013-12-25T16:04:43Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- my.selenium.udk.TestAccordion -->
+        </test-method> <!-- Test -->
+      </class> <!-- my.test.test.MyTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

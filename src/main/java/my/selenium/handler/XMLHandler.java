@@ -23,7 +23,6 @@ public class XMLHandler {
 	
 	@SuppressWarnings("unchecked")
 	public List<Node> getNodes(String xpath) {
-		@SuppressWarnings("unchecked")
 		List<Node> list = doc.selectNodes(xpath);
 		return list;
 	}

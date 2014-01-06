@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <p:Modules xmlns:p="http://www.w3school.com.cn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3school.com.cn config-schema.xsd ">
-  <p:Module p:moduleName="">
-    <p:TestCase p:browser="all">
-      <p:Step>
-        <p:Action p:actionType="click" p:elementType="xpath">p:Action</p:Action>
-        <p:ExpectedResult p:stepID="0" p:validationType="checkvalue">p:ExpectedResult</p:ExpectedResult>
+  <p:Module p:moduleID="0" p:moduleName="">
+    <p:TestCase p:browser="all" p:testCaseID="0">
+      <p:Step p:stepID="0">
+        <p:Action p:actionType="click">
+          <p:Element p:findBy="" p:findByType="xpath">p:Element</p:Element>
+        </p:Action>
+        <p:ExpectResult p:validationType="checkValue">
+          <p:Result p:findBy="" p:findByType="xpath">p:Result</p:Result>
+        </p:ExpectResult>
+      </p:Step>
+    </p:TestCase>
+  </p:Module>
+  
+    <p:Module p:moduleID="0" p:moduleName="">
+    <p:TestCase p:browser="all" p:testCaseID="0">
+      <p:Step p:stepID="0">
+        <p:Action p:actionType="click">
+          <p:Element p:findBy="" p:findByType="xpath">p:Element</p:Element>
+        </p:Action>
+        <p:ExpectResult p:validationType="checkValue">
+          <p:Result p:findBy="" p:findByType="xpath">p:Result</p:Result>
+        </p:ExpectResult>
       </p:Step>
     </p:TestCase>
   </p:Module>

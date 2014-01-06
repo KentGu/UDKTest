@@ -1,4 +1,4 @@
-package my.selenium.cases;
+package my.selenium.expectresult;
 
 import java.io.File;
 import java.io.IOException;
